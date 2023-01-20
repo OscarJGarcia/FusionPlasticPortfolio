@@ -1,5 +1,5 @@
 import React from 'react';
-import './product.css';
+import './product.scss';
 import images from '../../shared/constants/images';
 function Product() {
     const products: any[] = [

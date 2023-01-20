@@ -1,0 +1,43 @@
+#about {
+    width: 100%;
+    background-color: var(--color-quinary);
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 6rem 3em;
+    justify-content: space-between;
+
+    .title {
+        flex: 1;
+        padding: 3rem;
+
+        h2 {
+            font-size: 2rem;
+        }
+    }
+
+    .description {
+        flex: 2;
+        padding: 3rem;
+    }
+}
+
+
+@media screen and (max-width:780px) {
+    #about {
+        flex-direction: column;
+        padding: 3rem;
+
+        .title {
+            padding: 1rem 0;
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .description {
+            padding: 1rem 0;
+        }
+    }
+}

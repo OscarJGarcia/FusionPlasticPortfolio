@@ -1,5 +1,5 @@
 import React from 'react';
-import './home.css';
+import './home.scss';
 import images from '../../shared/constants/images';
 function Home() {
     const benefits: any[] = [{
