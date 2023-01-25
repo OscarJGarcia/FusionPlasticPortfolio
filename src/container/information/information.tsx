@@ -1,9 +1,9 @@
 import React from 'react';
-import './contact.scss';
+import './information.scss';
 
-function Contact() {
+function Information() {
     return (
-        <div id="contact">
+        <div id="information">
             <div className="contact-info">
                 <h2>
                     Contacto
@@ -32,7 +32,7 @@ function Contact() {
                             Email:
                         </p>
                         <p>
-                            Maribel Garcia Gomez
+                            correo@correo.com
                         </p>
                     </div>
                 </div>
@@ -52,11 +52,11 @@ function Contact() {
                     Redes Sociales
                 </h2>
                 <div>
-                    <a href="#">Facebook</a>
+                    <a href="https://www.facebook.com/profile.php?id=100081858037504">Facebook</a>
                 </div>
             </div>
         </div>
     );
 }
 
-export default Contact;
+export default Information;

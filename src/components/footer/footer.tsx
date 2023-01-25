@@ -1,12 +1,17 @@
 import React from 'react';
+import Information from '../../container/information/information';
 import './footer.scss';
 
 function Footer() {
     return (
         <div id="footer">
-            <h2>
-                ©2023 Fusion Plastic, Todo los derechos reservados
-            </h2>
+            <Information
+            ></Information>
+            <div className="rights">
+                <h2>
+                    ©2023 Fusion Plastic, Todo los derechos reservados
+                </h2>
+            </div>
         </div>
     );
 }

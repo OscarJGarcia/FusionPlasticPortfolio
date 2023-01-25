@@ -5,22 +5,22 @@ function Product() {
     const products: any[] = [
         {
             title: "Tapa aireador #18",
-            img: images.homeImg,
+            img: images.home,
             colors: ['#FFFFFF', '#000000']
         },
         {
             title: "Tapa de seguridad #18",
-            img: images.homeImg,
+            img: images.home,
             colors: ['#FFFFFF', '#000000']
         },
         {
             title: "Tapón aireador #18",
-            img: images.homeImg,
+            img: images.home,
             colors: ['#FFFFFF', '#000000']
         },
         {
             title: "Tapa perforada #18",
-            img: images.homeImg,
+            img: images.home,
             colors: ['#FFFFFF', '#000000']
         },
     ];

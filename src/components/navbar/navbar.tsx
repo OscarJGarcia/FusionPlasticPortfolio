@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './navbar.scss';
 import { GiHamburgerMenu } from "react-icons/gi";
-import { MdOutlineRestaurantMenu } from "react-icons/md";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { NavLink } from 'react-router-dom';
+import routes from '../../router';
 function Navbar() {
     const [toggleMenu, setToggleMenu] = useState(false);
     return (
@@ -10,20 +12,17 @@ function Navbar() {
                 <a href="#home">Fusion Plastic</a>
             </div>
             <ul className="app-navbar-links">
-                <li>
-                    <a href="#home">Inicio</a>
-                </li>
-                <li>
-                    <a href="#about">Nosotros</a>
-                </li>
-                <li>
-                    <a href="#product">Productos</a>
-                </li>
-                <li>
-                    <button className="btn-primary">
-                        Contactar
-                    </button>
-                </li>
+                {
+                    routes.map((route) => (
+                        <li>
+                            <NavLink
+                                to={route.path}
+                                key={route.name}>
+                                {route.name}
+                            </NavLink>
+                        </li>
+                    ))
+                }
             </ul>
             <div className="app-navbar-smallscreen">
                 <GiHamburgerMenu
@@ -36,37 +35,25 @@ function Navbar() {
                 ></GiHamburgerMenu>
                 {toggleMenu && (
                     <div className="app-navbar-smallscreen-overlay">
-                        <MdOutlineRestaurantMenu
+                        <AiOutlineCloseCircle
                             fontSize={27}
                             className="overlay-close"
                             onClick={() => {
                                 setToggleMenu(false);
                             }}
-                        ></MdOutlineRestaurantMenu>
-
+                        ></AiOutlineCloseCircle>
                         <ul className="app-navbar-smallscreen-links">
-                            <li>
-                                <a onClick={() => {
-                                    setToggleMenu(false);
-                                }} href="#home">Inicio</a>
-                            </li>
-                            <li>
-                                <a onClick={() => {
-                                    setToggleMenu(false);
-                                }} href="#about">Nosotros</a>
-                            </li>
-                            <li>
-                                <a onClick={() => {
-                                    setToggleMenu(false);
-                                }} href="#product">Productos</a>
-                            </li>
-                            <li>
-                                <button onClick={() => {
-                                    setToggleMenu(false);
-                                }} className="btn-primary">
-                                    Contactar
-                                </button>
-                            </li>
+                            {
+                                routes.map((route) => (
+                                    <li>
+                                        <NavLink
+                                            to={route.path}
+                                            key={route.name}>
+                                            {route.name}
+                                        </NavLink>
+                                    </li>
+                                ))
+                            }
                         </ul>
                     </div>
                 )}

@@ -5,6 +5,7 @@
   align-items: center;
   background: var(--color-white);
   padding: 2rem;
+  height: 120px;
 
   .app-logo {
     border-left: 4px solid var(--color-quinary);
@@ -29,7 +30,6 @@
       &:hover {
         color: var(--color-quinary);
       }
-
     }
   }
 
@@ -83,7 +83,7 @@
 
 @media screen and (max-width: 780px) {
   .app-navbar {
-    margin-bottom: 3rem;
+    padding: 1rem 1.8rem;
 
     .app-navbar-links {
       display: none;

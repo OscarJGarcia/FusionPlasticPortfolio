@@ -1,0 +1,38 @@
+#contact-modal {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .modal {
+        width: 70%;
+        z-index: 1000;
+        max-width: 1000px;
+        height: 600px;
+        background-color: white;
+        border-radius: 10px;
+        position: relative;
+
+        .overlay-close {
+            font-size: 27px;
+            cursor: pointer;
+            color: var(--color-quinary);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+    }
+}
