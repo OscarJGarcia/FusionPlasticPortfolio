@@ -9,21 +9,21 @@ function Navbar() {
     return (
         <nav className="app-navbar">
             <div className="app-logo">
-                <a href="#home">Fusion Plastic</a>
+                <NavLink to="/">Fusion Plastic</NavLink>
             </div>
-            <ul className="app-navbar-links">
+            <div className="app-navbar-links">
                 {
                     routes.map((route) => (
-                        <li>
-                            <NavLink
-                                to={route.path}
-                                key={route.name}>
-                                {route.name}
-                            </NavLink>
-                        </li>
+                        <NavLink
+                            to={route.path}
+                            key={route.name}
+                            className='app-navbar-link'
+                        >
+                            {route.name}
+                        </NavLink>
                     ))
                 }
-            </ul>
+            </div>
             <div className="app-navbar-smallscreen">
                 <GiHamburgerMenu
                     color="#000"
@@ -42,23 +42,26 @@ function Navbar() {
                                 setToggleMenu(false);
                             }}
                         ></AiOutlineCloseCircle>
-                        <ul className="app-navbar-smallscreen-links">
+                        <div className="app-navbar-smallscreen-links">
                             {
                                 routes.map((route) => (
-                                    <li>
-                                        <NavLink
-                                            to={route.path}
-                                            key={route.name}>
-                                            {route.name}
-                                        </NavLink>
-                                    </li>
+                                    <NavLink
+                                        to={route.path}
+                                        key={route.name}
+                                        className="app-navbar-smallscreen-link"
+                                        onClick={() => {
+                                            setToggleMenu(false);
+                                        }}
+                                    >
+                                        {route.name}
+                                    </NavLink>
                                 ))
                             }
-                        </ul>
+                        </div>
                     </div>
                 )}
             </div>
-        </nav>
+        </nav >
     );
 }
 
