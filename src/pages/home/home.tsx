@@ -4,6 +4,7 @@ import images from '../../shared/constants/images';
 import { useModal } from '../../hooks/usemodal';
 import About from '../../container/about/about';
 import Product from '../../container/product/product';
+import { NavLink } from 'react-router-dom';
 function Home() {
     const benefits: any[] = [{
         title: "Calidad",
@@ -20,9 +21,9 @@ function Home() {
                     <h2>Mejor Calidad.</h2>
                     <h2>Menor precio.</h2>
                     <p>Empresa dedicada a la fabricación de tapas plásticas para envases.</p>
-                    <button className="btn-info" onClick={() => toggle}>
+                    <NavLink to="/contact" className="btn-info">
                         Contactar
-                    </button>
+                    </NavLink>
                     <div className="benefits">
                         {benefits.map((benefit, index) => (
                             <span key={index} className='benefit mr-5'><img className='mr-1' src={benefit.icon} alt="benefit.title" />{benefit.title}</span>
