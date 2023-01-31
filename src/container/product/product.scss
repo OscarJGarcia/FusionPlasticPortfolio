@@ -24,7 +24,7 @@
             margin: 1rem 3rem 1rem 0;
 
             .image-container {
-                border: 1px solid var(--color-black);
+                border: 1px solid #ccc;
                 border-radius: 10px;
                 width: 100%;
                 height: 300px;
@@ -60,7 +60,20 @@
 
                 }
 
-                .view-product {}
+                .view-product {
+                    margin-top: 1rem;
+                    background-color: #000;
+                    border: 2px solid black;
+                    border-radius: 3px;
+                    padding: 0.5rem;
+                    color: white;
+
+                    &:hover {
+                        border: 2px solid var(--color-quinary);
+                        color: #000;
+                        background-color: white;
+                    }
+                }
             }
         }
 
@@ -75,8 +88,7 @@
             justify-content: flex-start;
 
             .card {
-                width: 180px;
-                margin: 2rem 1rem 2rem 0;
+                width: 200px;
 
                 .image-container {
                     height: 250px;

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './contact.scss';
 import { db } from '../../firebase/firebase-config';
 import { addDoc, collection } from 'firebase/firestore';
-import ModalService from '../../services/modal-service';
 import Modal, { ModalType } from '../../components/modal/modal';
 import { useModal } from '../../hooks/usemodal';
 function Contact() {

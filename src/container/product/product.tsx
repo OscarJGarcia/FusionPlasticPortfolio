@@ -1,30 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './product.scss';
 import images from '../../shared/constants/images';
+import { products } from '../../shared/constants/legacy-data';
+import Modal, { ModalType } from '../../components/modal/modal';
+import { useModal } from '../../hooks/usemodal';
+import ProductDetail from '../product-detail/product-detail';
 function Product() {
-    const products: any[] = [
-        {
-            title: "Tapa aireador #18",
-            img: images.home,
-            colors: ['#FFFFFF', '#000000']
-        },
-        {
-            title: "Tapa de seguridad #18",
-            img: images.home,
-            colors: ['#FFFFFF', '#000000']
-        },
-        {
-            title: "Tapón aireador #18",
-            img: images.home,
-            colors: ['#FFFFFF', '#000000']
-        },
-        {
-            title: "Tapa perforada #18",
-            img: images.home,
-            colors: ['#FFFFFF', '#000000']
-        },
-    ];
+    const [productId, setProductId] = useState("");
+    const { isOpen, toggle } = useModal();
 
+    const openProductDetail: any = (productId: string) => {
+        setProductId(productId);
+        toggle();
+    }
     return (
         <div id="product">
             <div className="products-description">
@@ -36,12 +24,17 @@ function Product() {
             <div className="product-container">
                 {
                     products.map((product, index) => (
-                        <div className="card" key={index}>
-                            <div className="image-container">
-                                <img src={product.img} alt="" />
-                            </div>
+                        <div className="card" key={product.id}>
+                            {product.images.length > 0 && <div className="image-container">
+                                <img src={product.images[0]} alt={`img-${index}`} />
+                            </div>}
+                            {
+                                product.images.length === 0 && <div className="image-container">
+                                    <img src={images.noImage} alt="no-image" />
+                                </div>
+                            }
                             <div className="card-title">
-                                <h3>{product.title}</h3>
+                                <h3>{product.name}</h3>
                             </div>
                             <div className="card-content">
                                 <div className="colors-container">
@@ -52,12 +45,15 @@ function Product() {
                                         ))}
                                     </div>
                                 </div>
-                                <button className='view-product'>Ver producto</button>
+                                <button className='view-product' onClick={() => openProductDetail(product.id)}>Ver producto</button>
                             </div>
                         </div>
                     ))
                 }
             </div>
+            <Modal width="80vw" height="65vh" type={ModalType.CONTENT} isOpen={isOpen} toggle={toggle}>
+                <ProductDetail productId={productId}></ProductDetail>
+            </Modal>
         </div >
     );
 }

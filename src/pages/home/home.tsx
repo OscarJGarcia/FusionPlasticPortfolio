@@ -21,7 +21,7 @@ function Home() {
                     <h2>Mejor Calidad.</h2>
                     <h2>Menor precio.</h2>
                     <p>Empresa dedicada a la fabricación de tapas plásticas para envases.</p>
-                    <NavLink to="/contact" className="btn-info">
+                    <NavLink to="/contact" className="btn-primary">
                         Contactar
                     </NavLink>
                     <div className="benefits">

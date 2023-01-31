@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './information.scss';
 
 function Information() {
@@ -14,6 +15,9 @@ function Information() {
                             Dirección:
                         </p>
 
+                        <p>
+                            Bogotá Colombia
+                        </p>
                         <p>
                             Calle 22b # 22 - 07
                         </p>
@@ -42,8 +46,7 @@ function Information() {
                     Enlaces rapidos
                 </h2>
                 <div>
-                    <a href="#">Terminos y condiciones</a>
-                    <a href="#">Política de privacidad</a>
+                    <NavLink to="/privacy-policy">Terminos y condiciones</NavLink>
                 </div>
             </div>
 
