@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import './product-detail.scss';
-import images from '../../shared/constants/images';
 import { products } from '../../shared/constants/legacy-data';
 import { NavLink } from 'react-router-dom';
 

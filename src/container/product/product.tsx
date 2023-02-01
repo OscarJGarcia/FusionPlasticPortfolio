@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './product.scss';
 import images from '../../shared/constants/images';
 import { products } from '../../shared/constants/legacy-data';

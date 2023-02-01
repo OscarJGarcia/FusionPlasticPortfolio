@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react';
+import { ReactNode } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import './modal.scss';
 
