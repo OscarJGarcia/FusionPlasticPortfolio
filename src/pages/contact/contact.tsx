@@ -38,17 +38,6 @@ function Contact() {
             return;
         }
 
-        const result = await fetch(
-            '/FusionPlasticPortfolio',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ ...enteredData, secret: 'firebaseIsCool' }),
-            }
-        );
-
         addDoc(userCollectionRef, enteredData);
         setModalMessage(
             {
