@@ -1,7 +1,5 @@
 import React from 'react';
 import './privacy-policy.scss';
-import images from '../../shared/constants/images';
-import { NavLink } from 'react-router-dom';
 function PrivacyPolicy() {
 
     return (
@@ -80,6 +78,19 @@ function PrivacyPolicy() {
                     </p>
                     <p>
                         Los términos y condiciones aquí establecidos, son susceptibles de cambios, por lo que Fusion Plastic se reserva el derecho de modificar, cambiar o dejar sin aplicación los mismos en cualquier momento y bajo su total discreción, sin necesidad de notificarle a los usuarios previamente. Fusion Plastic advierte que es deber del Usuario visitar el sitio web regularmente para tener conocimiento de dichos cambios. Fusion Plastic también se reserva el derecho a modificar, cambiar o bajar de la red el sitio web en cualquier momento, bajo su total discreción, y sin necesidad de notificarle a sus usuarios previamente.
+                    </p>
+                </li>
+                <li>
+                    <h2>Garantias</h2>
+                    <p>
+                        Fusion Plastic no otorga ninguna garantía, ni expresa ni implícita, en relación con la información que el Usuario obtenga a través de este sitio o todo el contenido que es suministrado a los Usuarios. Sin embargo, Fusion Plastic garantiza que:
+                        Cualquier información, originada por Fusion Plastic o por cualquier tercero, que el Usuario obtenga a través de este sitio no tiene ni generará garantía alguna por parte Fusion Plastic, sus empleados o distribuidores, no otorgan ninguna garantía,
+                        ni expresa ni implícita, en relación con la información contenida en su sitio web. De igual forma Fusion Plastic sus empleados o distribuidores no otorgan ninguna garantía, ni expresa ni implícita,
+                        en relación con los contenidos que el Usuario transmita a Fusion Plastic a través de su sitio web, bien sea que los mismos estén o no sujetos a reserva, confidencialidad o secreto. Se rechazan y se niegan todas y cualquiera garantías explícitas o implícitas,
+                        especialmente pero sin limitarse a aquellas sobre la comercialización o comercialidad de la información contenida en sus sitios web o aplicaciones móviles, sobre la calidad e idoneidad de la información de este Sitio y los Contenidos, sobre la no infracción o la adecuación o idoneidad para un propósito determinado o particular,
+                        la veracidad e integridad de los Contenidos y la información, los resultados obtenidos del uso del sitio web, los Contenidos o la información contenida en estos, la seguridad de las redes, la calidad de la información contenida en el Sitio, las relaciones contractuales, precontractuales y extracontractuales que usted sostenga con terceros a través del Sitio,
+                        garantías de cumplimiento, y la ausencia de errores. Fusion Plastic no controla ni garantiza la ausencia de virus y de otros elementos en su sitio web, que puedan producir alteraciones en el sistema informático (hardware o software) o en los archivos electrónicos del Usuario.
+                        Fusion Plastic niega y rechaza cualquier garantía sobre la corrección de los defectos que pueda tener este Sitio y sus Contenidos, o sobre la no existencia de componentes técnicos o tecnológicos perjudiciales o dañinos.
                     </p>
                 </li>
             </ul>

@@ -15,7 +15,7 @@ function NotFound() {
                 <p>
                     La pagina que estabas buscando no fue encontrada.
                 </p>
-                <NavLink className="btn-info" to="/">Inicio</NavLink>
+                <NavLink className="btn-primary" to="/">Inicio</NavLink>
             </div>
 
         </div>

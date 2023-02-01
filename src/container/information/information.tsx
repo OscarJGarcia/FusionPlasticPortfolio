@@ -28,7 +28,7 @@ function Information() {
                         </p>
 
                         <p>
-                            Cel: 3115162887
+                            3115162887
                         </p>
                     </div>
                     <div>
@@ -36,7 +36,7 @@ function Information() {
                             Email:
                         </p>
                         <p>
-                            correo@correo.com
+                            fusionplasticg22@gmail.com
                         </p>
                     </div>
                 </div>

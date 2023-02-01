@@ -10,11 +10,11 @@ const routes: Route[] = [
     },
     {
         name: "Nosotros",
-        path: '/'
+        path: '/#about'
     },
     {
         name: "Productos",
-        path: '/'
+        path: '/#product'
     },
     {
         name: "Contactar",

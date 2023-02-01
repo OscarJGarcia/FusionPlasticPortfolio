@@ -17,7 +17,7 @@ function Contact() {
     const { isOpen, toggle } = useModal();
     const userCollectionRef = collection(db, "contactData");
 
-    const handleSubmit = (event: any) => {
+    const handleSubmit = async (event: any) => {
         event?.preventDefault();
         const enteredData = {
             name,
@@ -37,6 +37,18 @@ function Contact() {
             toggle();
             return;
         }
+
+        const result = await fetch(
+            '/FusionPlasticPortfolio',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ...enteredData, secret: 'firebaseIsCool' }),
+            }
+        );
+
         addDoc(userCollectionRef, enteredData);
         setModalMessage(
             {
@@ -44,6 +56,7 @@ function Contact() {
                 type: ModalType.INFO
             }
         );
+
         toggle();
         resetForm();
     }
