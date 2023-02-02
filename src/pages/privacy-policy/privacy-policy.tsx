@@ -1,7 +1,5 @@
-import React from 'react';
 import './privacy-policy.scss';
 function PrivacyPolicy() {
-
     return (
         <div id="privacy-policy">
             <h1>Términos y condiciones</h1>

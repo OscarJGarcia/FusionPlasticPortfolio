@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './contact.scss';
 import { db } from '../../firebase/firebase-config';
 import { addDoc, collection } from 'firebase/firestore';
@@ -39,13 +39,32 @@ function Contact() {
         }
 
         addDoc(userCollectionRef, enteredData);
-        setModalMessage(
+
+        const result = await fetch(
+            '/FusionPlasticPortfolio',
             {
-                message: 'Tu mensaje ha sido enviado correctamente!',
-                type: ModalType.INFO
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ...enteredData, secret: process.env.REACT_APP_NODEMAILER_SECRET }),
             }
         );
-
+        if (result.ok) {
+            setModalMessage(
+                {
+                    message: 'Tu mensaje ha sido enviado correctamente!',
+                    type: ModalType.INFO
+                }
+            );
+        } else {
+            setModalMessage(
+                {
+                    message: 'Ha ocurrido un problema al enviar tu mensaje',
+                    type: ModalType.INFO
+                }
+            );
+        }
         toggle();
         resetForm();
     }
@@ -89,18 +108,19 @@ function Contact() {
                 </div>
                 <div className="input-group">
                     <label htmlFor="email">Mensaje:</label>
-                    <textarea name="message" value={message} placeholder='Escribe aqui'
+                    <textarea name="message" value={message} placeholder='Escribe aqui' maxLength={1000}
                         onChange={
                             (event: any) => {
                                 setMessage(event.target.value);
                             }
                         }></textarea>
+                    <span className='char-length'>{`${message.length}/1000`}</span>
                 </div>
                 <button className="btn-primary" type="submit">Enviar</button>
-            </form>
+            </form >
             <Modal width="20vw" height="150px" type={modalMessage.type} message={modalMessage.message} isOpen={isOpen} toggle={toggle}>;
             </Modal>
-        </div>
+        </div >
     );
 }
 

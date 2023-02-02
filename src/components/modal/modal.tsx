@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import './modal.scss';
 
-
 export enum ModalType {
     INFO,
     ERROR,
@@ -20,15 +19,6 @@ interface IModal {
 
 export default function Modal(props: IModal) {
     const color = props.type === ModalType.ERROR ? '#d62828' : '#2a9134';
-    // let width: string = props.width;
-    // let height: string = props.height;
-    // const windowWidth = useRef(window.innerWidth);
-    // const windowHeight = useRef(window.innerHeight);
-    // if (+windowWidth.current < 920) {
-    //     width = ((windowWidth.current * 80) / 100) + 'px';
-    //     height = ((windowHeight.current * 0) / 100) + 'px';
-    // }
-
     return (
         <>
             {props.isOpen &&

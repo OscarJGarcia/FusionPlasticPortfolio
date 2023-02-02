@@ -1,4 +1,3 @@
-import React from 'react';
 import Information from '../../container/information/information';
 import './footer.scss';
 
