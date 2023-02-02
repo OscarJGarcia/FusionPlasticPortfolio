@@ -30,7 +30,7 @@ function Product() {
                             </div>}
                             {
                                 product.images.length === 0 && <div className="image-container">
-                                    <img src={images.noImage} alt="no-photo" />
+                                    <img src={images.noImage} alt="empty" />
                                 </div>
                             }
                             <div className="card-title">
