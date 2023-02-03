@@ -89,8 +89,8 @@ function Contact() {
                     } />
                 </div>
                 <div className="input-group">
-                    <label htmlFor="phone">Telefono / Celular:</label>
-                    <input type="number" name='phone' value={phone} placeholder="Escribe tu telefono"
+                    <label htmlFor="phone">Teléfono / Celular:</label>
+                    <input type="number" name='phone' value={phone} placeholder="Escribe tu teléfono"
                         onChange={
                             (event: any) => {
                                 setPhone(event.target.value);
