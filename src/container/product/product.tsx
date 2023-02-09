@@ -1,16 +1,34 @@
-import { useState } from 'react';
-import './product.scss';
-import images from '../../shared/constants/images';
-import { products } from '../../shared/constants/legacy-data';
-import Modal, { ModalType } from '../../components/modal/modal';
+import { useState, useEffect } from 'react';
+import { db } from '../../firebase/firebase-config';
+import { collection, getDocs } from 'firebase/firestore';
 import { useModal } from '../../hooks/usemodal';
 import ProductDetail from '../product-detail/product-detail';
-function Product() {
-    const [productId, setProductId] = useState("");
-    const { isOpen, toggle } = useModal();
+import Modal, { ModalType } from '../../components/modal/modal';
+import images from '../../shared/constants/images';
+import './product.scss';
+import { ThreeCircles } from 'react-loader-spinner'
 
-    const openProductDetail: any = (productId: string) => {
-        setProductId(productId);
+function Product() {
+    const [product, setProduct] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+    const { isOpen, toggle } = useModal();
+    const [productsdb, setProductsdb] = useState<any[]>([]);
+    const fetchProducts = async () => {
+        await getDocs(collection(db, "products"))
+            .then((querySnapshot) => {
+                const newData = querySnapshot.docs
+                    .map((doc) => ({ ...doc.data(), id: doc.id }));
+                setProductsdb(newData);
+                setIsLoading(false);
+            })
+    }
+    useEffect(() => {
+        fetchProducts();
+    }, []);
+
+
+    const openProductDetail: any = (product: any) => {
+        setProduct(product);
         toggle();
     }
     return (
@@ -22,10 +40,10 @@ function Product() {
                 </p>
             </div>
             <div className="product-container">
-                {
-                    products.map((product, index) => (
+                {!isLoading &&
+                    productsdb.map((product, index) => (
                         <div className="card" key={product.id}>
-                            {product.images.length > 0 && <div className="image-container">
+                            {product.images.length > 0 && <div className="image-container cursor-pointer" onClick={() => openProductDetail(product)}>
                                 <img src={product.images[0]} alt={`img-${index}`} />
                             </div>}
                             {
@@ -45,14 +63,30 @@ function Product() {
                                         ))}
                                     </div>
                                 </div>
-                                <button className='view-product' onClick={() => openProductDetail(product.id)}>Ver producto</button>
+                                <button className='view-product' onClick={() => openProductDetail(product)}>Ver producto</button>
                             </div>
                         </div>
                     ))
                 }
+                {isLoading &&
+                    <div className='w-full flex justify-center'>
+                        <ThreeCircles
+                            height="100"
+                            width="100"
+                            color="#4fa94d"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                            visible={true}
+                            ariaLabel="three-circles-rotating"
+                            outerCircleColor=""
+                            innerCircleColor=""
+                            middleCircleColor=""
+                        />
+                    </div>
+                }
             </div>
             <Modal width="80vw" height="65vh" type={ModalType.CONTENT} isOpen={isOpen} toggle={toggle}>
-                <ProductDetail productId={productId}></ProductDetail>
+                <ProductDetail product={product}></ProductDetail>
             </Modal>
         </div >
     );

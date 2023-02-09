@@ -2,11 +2,10 @@ import { useState } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 import './product-detail.scss';
-import { products } from '../../shared/constants/legacy-data';
 import { NavLink } from 'react-router-dom';
 
 function ProductDetail(props: any) {
-    const product = products.find(product => product.id === props.productId);
+    const product = props.product;
     const [currentIndex, setCurrentIndex] = useState(0);
     const prevSlide = () => {
         if (product && product.images.length > 0) {
@@ -34,18 +33,18 @@ function ProductDetail(props: any) {
                 <div className='slider-container w-full relative group'>
                     <div
                         style={{ backgroundImage: `url(${product?.images[currentIndex]})` }}
-                        className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
+                        className='w-full h-full rounded-2xl bg-center bg-cover'
                     ></div>
                     {/* Left Arrow */}
-                    <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+                    <div className='group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
                         <BsChevronCompactLeft onClick={prevSlide} size={30} />
                     </div>
                     {/* Right Arrow */}
-                    <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
+                    <div className='group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
                         <BsChevronCompactRight onClick={nextSlide} size={30} />
                     </div>
                     <div className='flex top-4 justify-center py-2'>
-                        {product && product?.images.length > 0 && product?.images.map((slide, slideIndex) => (
+                        {product && product?.images.length > 0 && product?.images.map((slide: any, slideIndex: number) => (
                             <div
                                 key={slideIndex}
                                 onClick={() => goToSlide(slideIndex)}
