@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Footer from './components/footer/footer';
 import Navbar from './components/navbar/navbar';
+import ProductDetail from './pages/product-detail/product-detail';
 import Contact from './pages/contact/contact';
 import Home from './pages/home/home';
 import NotFound from './pages/not-found/not-found';
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/product/:productId' element={<ProductDetail />} />
         <Route path='/privacy-policy' element={<TermsConditions />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

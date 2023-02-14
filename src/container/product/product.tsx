@@ -1,24 +1,21 @@
 import { useState, useEffect } from 'react';
 import { db } from '../../firebase/firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
-import { useModal } from '../../hooks/usemodal';
-import ProductDetail from '../product-detail/product-detail';
-import Modal, { ModalType } from '../../components/modal/modal';
 import images from '../../shared/constants/images';
 import './product.scss';
 import { ThreeCircles } from 'react-loader-spinner'
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function Product() {
-    const [product, setProduct] = useState();
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
-    const { isOpen, toggle } = useModal();
-    const [productsdb, setProductsdb] = useState<any[]>([]);
+    const [products, setProducts] = useState<any[]>([]);
     const fetchProducts = async () => {
         await getDocs(collection(db, "products"))
             .then((querySnapshot) => {
                 const newData = querySnapshot.docs
                     .map((doc) => ({ ...doc.data(), id: doc.id }));
-                setProductsdb(newData);
+                setProducts(newData);
                 setIsLoading(false);
             })
     }
@@ -27,10 +24,10 @@ function Product() {
     }, []);
 
 
-    const openProductDetail: any = (product: any) => {
-        setProduct(product);
-        toggle();
+    const openProductDetail = (productId: string) => {
+        navigate(`/product/${productId}`)
     }
+
     return (
         <div id="product">
             <div className="products-description">
@@ -41,9 +38,9 @@ function Product() {
             </div>
             <div className="product-container">
                 {!isLoading &&
-                    productsdb.map((product, index) => (
+                    products.map((product, index) => (
                         <div className="card" key={product.id}>
-                            {product.images.length > 0 && <div className="image-container cursor-pointer" onClick={() => openProductDetail(product)}>
+                            {product.images.length > 0 && <div className="image-container cursor-pointer" onClick={() => openProductDetail(product.id)}>
                                 <img src={product.images[0]} alt={`img-${index}`} />
                             </div>}
                             {
@@ -63,7 +60,7 @@ function Product() {
                                         ))}
                                     </div>
                                 </div>
-                                <button className='view-product' onClick={() => openProductDetail(product)}>Ver producto</button>
+                                <NavLink className='view-product' to={`/product/${product.id}`}>Ver producto</NavLink>
                             </div>
                         </div>
                     ))
@@ -85,9 +82,6 @@ function Product() {
                     </div>
                 }
             </div>
-            <Modal width="80vw" height="65vh" type={ModalType.CONTENT} isOpen={isOpen} toggle={toggle}>
-                <ProductDetail product={product}></ProductDetail>
-            </Modal>
         </div >
     );
 }

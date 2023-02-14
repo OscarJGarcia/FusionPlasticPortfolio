@@ -67,6 +67,8 @@
                     border-radius: 3px;
                     padding: 0.5rem;
                     color: white;
+                    cursor: pointer;
+                    display: block;
 
                     &:hover {
                         border: 2px solid var(--color-quinary);

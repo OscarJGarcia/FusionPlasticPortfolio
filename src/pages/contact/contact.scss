@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 70vh;
+    min-height: var(--full-size);
 
     h2 {
         font-size: 2rem;

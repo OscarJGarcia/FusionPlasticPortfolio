@@ -79,7 +79,7 @@ function Contact() {
     return (
         <div id="contact">
             <h2>Contactanos</h2>
-            <form className="form-container" onSubmit={handleSubmit}>
+            <form className="form-container" onSubmit={handleSubmit} autoComplete="off">
                 <div className="input-group">
                     <label htmlFor="name">Nombre</label>
                     <input type="text" name='name' value={name} placeholder="Escribe tu nombre" onChange={
